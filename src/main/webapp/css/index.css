@@ -1,0 +1,51 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap");
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+main {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #333;
+}
+main h1 {
+	width: 350px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -175px;
+	text-align: center;
+	line-height: 150px;
+	color: #fff;
+	cursor: pointer;
+}
+main h1 i {
+	position: relative;
+	top: 30px;
+	margin-left: 30px;
+	font-size: 5em;
+}
+main h1 a {
+	position: relative;
+	margin-left: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 2em;
+	color: #fff;
+	outline: 0;
+}
+main address {
+	width: 200px;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	margin-left: -100px;
+	text-align: center;
+	font: normal 11px/1.2 "arial";
+	color: #888;
+}
