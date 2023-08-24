@@ -11,40 +11,40 @@ main {
 	position: absolute;
 	background: #333;
 }
-main h1 {
-	width: 350px;
-	height: 300px;
+main section {
+	width: 500px;
+	height: 500px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -150px;
-	margin-left: -175px;
+	margin-top: -250px;
+	margin-left: -250px;
 	text-align: center;
-	line-height: 150px;
 	color: #fff;
 	cursor: pointer;
 }
-main h1 i {
+main section a:nth-of-type(1) img {
+	width: 300px;
+	height: 300px;
 	position: relative;
-	top: 30px;
-	margin-left: 30px;
-	font-size: 5em;
+	top: 50px;
 }
-main h1 a {
+main section a:nth-of-type(2) {
 	position: relative;
+	top: 50px;
 	margin-left: 10px;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 4em;
 	color: #fff;
 	outline: 0;
 }
 main address {
-	width: 200px;
+	width: 250px;
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
-	margin-left: -100px;
+	margin-left: -125px;
 	text-align: center;
 	font: normal 11px/1.2 "arial";
 	color: #888;
