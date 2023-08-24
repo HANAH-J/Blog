@@ -22,23 +22,34 @@ body {
 
 
 /*div*/
-div h1 {
-	font-size: 1em;
-	color: #fff;
+div section {
+	display: flex;
+	width: 235px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);;
     text-align: center;
     margin-top: 90px;
 }
-
-div h1 i {
-	font-size: 3em;
-	margin-bottom: 15px;
-	margin-right: 15px;
+div section a {
+	display: inline-block;
+	position: relative;
 }
-div h1 span {
+div section a:nth-of-type(1) {
+	width: 4em;
+	height: 4em;
+}
+div section a:nth-of-type(1) img {
+	width: 4em;
+	height: 4em;
+}
+div section a:nth-of-type(2) {
+	position: relative;
+	margin-left: 15px;
 	font: normal 1 "arial";
-}
-div h1 span a {
 	font-size: 2em;
+	font-weight: bold;
+	line-height: 2em;
 	color: #fff;
 }
 
@@ -46,14 +57,14 @@ div h1 span a {
 
 /*form*/
 form {
-    width: 600px;
+/*	border: 1px solid red;*/
+    width: 500px;
     height: 500px;
-    border: 1px solid #555;
     position: absolute;
     left: 50%;
-    margin-top: 30px;
-    margin-left: -300px;
-    padding: 50px;
+    transform: translate(-50%);
+	padding-top: 10px;
+    padding-left: 50px;
 }
 form span {
 	color: #bbb;
@@ -63,26 +74,30 @@ form table tr:nth-of-type(1) td input {
 	margin-bottom: 0;
 }
 form table tr:nth-of-type(1) td button {
-	width: 170px;
-	height: 35px;
+	border: none;
+	width: 60px;
+	height: 30px;
 	position: absolute;
-    margin-top: 15px;
-    margin-left: 25px;
-    font: normal 1em "arial";
+    margin-top: 27px;
+    margin-left: -75px;
+    background-color: transparent;
+    font: normal 0.9em "arial";
     cursor: pointer;
 }
 form table tr td input {
-	width: 300px;
-    height: 35px;
-    padding-left: 10px;
+	width: 400px;
+    height: 55px;
     position: relative;
-    font: normal 1 "arial";
+    margin-top: -3px;
+    padding-left: 10px;
 }
-form table tr:nth-of-type(4) td input, form table tr:nth-of-type(6) td input {
+form table tr:nth-of-type(4) td input {
 	margin-top: 15px;
 }
-form table tr:nth-of-type(8) td button {
-	width: 500px;
-	height: 50px;
+form table tr:nth-of-type(6) td button {
+	width: 400px;
+	height: 55px;
 	margin-top: 15px;
+	font-size: 1em;
+    font-weight: bold;
 }
