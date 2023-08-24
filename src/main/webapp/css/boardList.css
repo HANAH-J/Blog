@@ -39,16 +39,37 @@ main header {
 	position: relative;
 	z-index: 3; /*section 요소와 aside 팝업 요소보다 위에 배치하기 위해 3을 지정*/
 }
-main header h1 {
+main header section {
+	display: block;
+	width: 100%;
+	height: 6.5vw;
+	flex-direction: column;
+	justify-content: flex-start;
+	position: relative;
 	font-size: 0px; /*안쪽의 자간과 줄 높이를 초기화*/
 	color: #fff;
 }
-main header h1 i {
-	font-size: 5vw;
-	margin-bottom: 15px;
+main header section a:nth-of-type(1) {
+	display: block;
+	width: 5vw;
+	height: 5vw;
+	position: absolute;
+	top: 0;
 }
-main header h1 span a {
-	font-size: 2vw;
+main header section a:nth-of-type(1) img {
+	width: 5vw;
+	height: 5vw;
+	position: relative;
+}
+main header section a:nth-of-type(2) {
+	display: block;
+	width: 100%;
+	height: 1.5vw;
+	position: absolute;
+	top: 5.25vw;
+	font-size: 1.5vw;
+	font-weight: bold;
+	line-height: 1.5vw;
 	color: #fff;
 }
 main header address {
@@ -188,7 +209,7 @@ main section article:hover .inner .txt h2 { /*article 요소 호버 시 h2 변�
 	font-size: 2vw;
 	padding-top: 0px;
 }
-main section article:hover .inner .txt h2::after { /*article 요소 호버 시 h2::after 변경 구문*/;
+main section article:hover .inner .txt h2::after { /*article 요소 호버 시 h2::after 변경 구문*/
 	width: 120px;
 	background: orange;
 }
