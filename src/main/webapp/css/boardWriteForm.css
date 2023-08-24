@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap");
+@font-face {font-family:MalgunGothic; src:url(images/MalgunGothic.eot);}
 * {
 	margin: 0px;
 	padding: 0px;
@@ -22,38 +23,50 @@ body {
 
 
 /*div*/
-div h1 {
-	font-size: 1em;
-	color: #fff;
+div section {
+	display: flex;
+	width: 235px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);;
     text-align: center;
     margin-top: 90px;
 }
-
-div h1 i {
-	font-size: 3em;
-	margin-bottom: 15px;
-	margin-right: 15px;
+div section a {
+	display: inline-block;
+	position: relative;
 }
-div h1 span {
-	font: normal 1 "arial";
+div section a:nth-of-type(1) {
+	width: 4.6em;
+	height: 4.6em;
 }
-div h1 span a {
-	font-size: 2em;
+div section a:nth-of-type(1) img {
+	width: 4.6em;
+	height: 4.6em;
+}
+div section a:nth-of-type(2) {
+	position: relative;
+	margin-left: 15px;
+	font-family:'Malgun Gothic' !important; 
+	font-size: 2.28em;
+	font-weight: bold;
+	line-height: 2em;
 	color: #fff;
+}
+div section a:nth-of-type(2):hover {
+	text-decoration: none;
 }
 
 
 
 /*form*/
 form {
-    width: 1200px;
-    height: 750px;
-    border: 1px solid #555;
+    width: 1100px;
+    height: 700px;
     position: absolute;
     left: 50%;
-	margin-top: 30px;
-    margin-left: -600px;
-    padding: 50px;
+    margin-left: -550px;
+    padding-top: 25px;
 }
 form h2 {
 	color: #bbb;
@@ -62,33 +75,35 @@ form table tr:nth-of-type(1) td input:focus {
 	outline: none;
 }
 form table tr:nth-of-type(1) td input {
+	border: none;
 	width: 1100px;
 	height: 50px;
-	padding-left: 10px;
+	margin-bottom: 15px;
+	padding: 0px 10px;
 	background-color: #333;
 	font: normal 2em "arial";
 	color: #bbb;
 	caret-color: #bbb;
-	border: none;
 }
 form table tr:nth-of-type(2) td textarea {
     width: 1100px;
     height: 500px;
-	margin-top: 15px;
     position: relative;
+    resize: none;
 }
 form table tr:nth-of-type(3){
     position: absolute;
-    right: 50px;
+    bottom: 0;
+    right: 0;
 }
 form table tr:nth-of-type(3) td button {
+	border-radius: 0;
 	width: 90px;
 	height: 40px;
 	margin-top: 12px;
 	margin-left: 12px;
 	background-color: #fff;
-	border: 1px solid #fff;
 	font: normal 1em "arial";
+	font-weight: bold;
 	color: #333;
-	cursor: pointer;
 }

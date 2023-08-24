@@ -4,36 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MY BLOG : EDIT</title>
+<title>MY DUCK : EDIT</title>
+
+<!-- summernote - jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- summernote - bootstrap -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- summernote - css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <!-- favicon -->
 <link rel="icon" href="image/favicon.ico" />
 <!-- css -->
 <link href="css/boardWriteForm.css" rel="stylesheet" />
-<!-- font awesome -->
-<script src="https://kit.fontawesome.com/b3196b3d02.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="script/jquery-3.7.0.js"></script>
-<!-- CKEditor -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 
 </head>
 <body>
 	<main>
 		<div>
-			<h1>
-				<i class="fa-sharp fa-solid fa-blog"></i>
-				<span><a href="bs?command=board_list">MY BLOG</a></span>
-			</h1>
+			<section>
+				<a href="bs?command=board_list"><img src="image/logo.png"></a>
+				<a href="bs?command=board_list">MY DUCK</a>
+			</section>
 		</div>
 		<form action="bs" method="POST">
 		<input type="hidden" name="command" value="board_update">
 			<table>
 				<tr>
-					<td colspan="3"><input type="text" name="boardTitle" value="${bVo.boardTitle}"></td>
+					<td colspan="3"><input type="text" name="boardTitle" value="${bVo.boardTitle}" autocomplete="off" spellcheck="false"></td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<textarea rows="10" cols="80" name="boardContent">${bVo.boardContent}</textarea>
+						<textarea id="summernote" name="boardContent">${bVo.boardContent}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -55,15 +59,31 @@
 		window.history.back();
 	}
 	
-	// CKEditor 연동
-	$(function () {
-		CKEDITOR.replace('boardContent', {
-			// filebrowserUploadUrl : '${pageContext.request.contextPath}/ckEditorFileUpload',
-			// filebrowserUploadMethod: 'form',
-			width: '1100px',
-			height: '500px'
-		});
-	});
+	// summernote 연동
+	$(document).ready(function() {
+        $('#summernote').summernote({
+        	height: 480,
+        	lang: 'ko-KR',
+        	toolbar: [
+			    ['fontname', ['fontname']],
+			    ['fontsize', ['fontsize']],
+			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+			    ['color', ['forecolor','color']],
+			    ['table', ['table']],
+			    ['para', ['ul', 'ol', 'paragraph']],
+			    ['height', ['height']],
+			    ['insert',['picture','link','video']],
+			    ['view', ['fullscreen', 'help']]
+			  ],
+			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+			disableResizeEditor: true
+        });
+        $('#summernote').summernote('fontName', '맑은 고딕');
+        $('#summernote').summernote('fontSize', 11);
+        $('#summernote').summernote('fontSizeUnit', 'pt');
+        $('.note-statusbar').hide();
+    });
 </script>
 </body>
 </html>
