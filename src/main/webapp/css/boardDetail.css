@@ -45,16 +45,37 @@ main header {
 	position: relative;
 	z-index: 3; /*section 요소와 aside 팝업 요소보다 위에 배치하기 위해 3을 지정*/
 }
-main header h1 {
+main header section {
+	display: block;
+	width: 100%;
+	height: 6.5vw;
+	flex-direction: column;
+	justify-content: flex-start;
+	position: relative;
 	font-size: 0px; /*안쪽의 자간과 줄 높이를 초기화*/
 	color: #fff;
 }
-main header h1 i {
-	font-size: 5vw;
-	margin-bottom: 15px;
+main header section a:nth-of-type(1) {
+	display: block;
+	width: 5vw;
+	height: 5vw;
+	position: absolute;
+	top: 0;
 }
-main header h1 span a {
-	font-size: 2vw;
+main header section a:nth-of-type(1) img {
+	width: 5vw;
+	height: 5vw;
+	position: relative;
+}
+main header section a:nth-of-type(2) {
+	display: block;
+	width: 100%;
+	height: 1.5vw;
+	position: absolute;
+	top: 5.25vw;
+	font-size: 1.5vw;
+	font-weight: bold;
+	line-height: 1.5vw;
 	color: #fff;
 }
 main header address {
@@ -153,6 +174,7 @@ main .comment form textarea {
 	resize: none;
 	outline: none;
 	background-color: #333;
+	font-family: inherit;
 	color: #fff;
 }
 main .comment form textarea::placeholder {
@@ -168,9 +190,9 @@ main .comment form button {
 	font-size: 1em;
 	font-weight: bold;
 	color: #333;
+	cursor: pointer;
 }
 main .comment #commentList span:nth-of-type(1) {
-	font-family: 'S-CoreDream-3Light';
 	font-size: 0.9em;
 	font-weight: bold;
 	color: #fff;
@@ -188,7 +210,6 @@ main .comment #commentList button {
 	width: 45px;
 	height: 25px;
 	outline: none;
-	margin-left: -10px;
 	background-color: #fff;
 	color: #333;
 	font-size: 0.9em;
@@ -218,17 +239,18 @@ main footer {
 	right: 5%;
 	bottom: 90px;
 	overflow: hidden;
-	font-family: 'Noto Sans KR';
 }
 main footer a {
 	border: 1px solid #fff;
 	display: block;
-	width: 90px;
+	width: 80px;
 	height: 40px;
 	float: left;
 	margin-left: 20px;
 	background-color: #fff;
-	color: #333;
+	font-size: 0.9em;
+	font-weight: bold;
 	text-align: center;
 	line-height: 40px;
+	color: #333;
 }

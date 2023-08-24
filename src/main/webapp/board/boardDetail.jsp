@@ -9,14 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>MY BLOG : READ</title>
+<title>MY DUCK : READ</title>
 
 <!-- favicon -->
 <link rel="icon" href="image/favicon.ico" />
 <!-- css -->
 <link href="css/boardDetail.css" rel="stylesheet" />
-<!-- font awesome -->
-<script src="https://kit.fontawesome.com/b3196b3d02.js" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script type="text/javascript" src="script/jquery-3.7.0.js"></script>
 
@@ -25,12 +23,13 @@
 	<main>
 		<!-- header -->
 		<header>
-			<h1>
-				<i class="fa-sharp fa-solid fa-blog"></i>
-				<br>
-				<span><a href="bs?command=board_list">MY BLOG</a></span>
-			</h1>
-			<address>2023 HANA<br>ALL RIGHTS RESERVED.</address>
+			<section>
+				<a href="bs?command=board_list"><img src="image/logo.png" alt="My Duck Logo"></a>
+				<a href="bs?command=board_list">MY&nbspDUCK</a>
+			</section>
+			<address>
+				2023 HANAH-J<br>ALL RIGHTS RESERVED.
+				</address>
 		</header>
 	
 	
