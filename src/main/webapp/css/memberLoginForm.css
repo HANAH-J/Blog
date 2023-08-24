@@ -89,7 +89,8 @@ form table tr:nth-of-type(3) td button {
 	height: 50px;
 	position: absolute;
     margin-top: -5px;
-    font: normal 1em "arial";
+	font-size: 1em;
+    font-weight: bold;
     cursor: pointer;
 }
 form table tr:nth-of-type(4) td{
