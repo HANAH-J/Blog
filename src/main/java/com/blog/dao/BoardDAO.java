@@ -21,7 +21,7 @@ public class BoardDAO {
 	public List<BoardVO> selectBoardList() {
 		List<BoardVO> boardList = new ArrayList<>();
 		
-		String sql = "SELECT * FROM blogBoardTbl ORDER BY boardNum DESC";
+		String sql = "SELECT * FROM tbl_board ORDER BY boardNum DESC";
 		
 		Connection conn  = null;
 		Statement stmt = null;
@@ -61,7 +61,7 @@ public class BoardDAO {
 
 	// [게시물] 조회수 증가 메서드
 	public void updateReadCount(int boardNum) {
-		String sql = "UPDATE blogBoardTbl SET readCount = readCount+1 WHERE boardNum = ?";
+		String sql = "UPDATE tbl_board SET readCount = readCount+1 WHERE boardNum = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -84,7 +84,7 @@ public class BoardDAO {
 	public BoardVO selectBoardDetail(int boardNum) {
 		BoardVO bVo = null;
 		
-		String sql = "SELECT * FROM blogBoardTbl WHERE boardNum = ?";
+		String sql = "SELECT * FROM tbl_board WHERE boardNum = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -117,7 +117,7 @@ public class BoardDAO {
 
 	// [게시물] 게시물 등록하기 메서드
 	public void insertBoard(String id, BoardVO bVo) {
-		String sql = "INSERT INTO blogBoardTbl VALUES(?, blogBoardTbl_seq.nextval, ?, ?, 0, TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS'))";
+		String sql = "INSERT INTO tbl_board VALUES(?, tbl_board_seq.nextval, ?, ?, 0, TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS'))";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -140,7 +140,7 @@ public class BoardDAO {
 
 	// [게시물] 게시물 수정하기 메서드
 	public void updateBoard(BoardVO bVo) {
-		String sql = "UPDATE blogBoardTbl SET boardTitle = ?, boardContent = ? WHERE boardNum = ?";
+		String sql = "UPDATE tbl_board SET boardTitle = ?, boardContent = ? WHERE boardNum = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -163,7 +163,7 @@ public class BoardDAO {
 
 	// [게시물] 게시물 삭제하기 메서드
 	public void deleteBoard(int boardNum) {
-		String sql = "DELETE FROM blogBoardTbl WHERE boardNum = ?";
+		String sql = "DELETE FROM tbl_board WHERE boardNum = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -188,7 +188,7 @@ public class BoardDAO {
 	public int selectAllNum(String id) {
 		int totalCnt = 0;
 			
-		String sql = "SELECT count(*) FROM blogBoardTbl WHERE memberId = ?";
+		String sql = "SELECT count(*) FROM tbl_board WHERE memberId = ?";
 			
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -220,7 +220,7 @@ public class BoardDAO {
 		String sql = " SELECT * "
 				   + " FROM ( "
 				   + " SELECT ROWNUM as nickNum, memberId, boardNum, boardTitle, boardContent, readCount, boardDate "
-				   + " FROM (SELECT * FROM blogBoardTbl WHERE memberId = ? ORDER BY boardNum DESC)) "
+				   + " FROM (SELECT * FROM tbl_board WHERE memberId = ? ORDER BY boardNum DESC)) "
 				   + " WHERE nickNum BETWEEN (?-1) *20 + (?-1) *4 +1 AND (?-1) *20 + (?) *4";
 			
 		Connection conn = null;

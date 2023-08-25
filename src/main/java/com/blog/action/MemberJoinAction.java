@@ -21,9 +21,7 @@ public class MemberJoinAction implements Action {
 		mVo.setId(request.getParameter("id"));
 		mVo.setPassword(request.getParameter("password"));
 		mVo.setName(request.getParameter("name"));
-		mVo.setBirthday(Integer.parseInt(request.getParameter("birthday")));
 		mVo.setEmail(request.getParameter("email"));
-		mVo.setPhone(Integer.parseInt(request.getParameter("phone")));
 
 		MemberDAO.getInstance().insertMember(mVo);
 

@@ -20,7 +20,7 @@ public class CommentDAO {
 	public List<CommentVO> selectCommentList(int boardNum) {
 		List<CommentVO> commentList = new ArrayList<>();
 			
-		String sql = "SELECT * FROM blogCommentTbl WHERE boardNum = ? ORDER BY commentNum ASC";
+		String sql = "SELECT * FROM tbl_comment WHERE boardNum = ? ORDER BY commentNum ASC";
 			
 		Connection conn  = null;
 		PreparedStatement psmt = null;
@@ -56,7 +56,7 @@ public class CommentDAO {
 	
 	// [댓글] 댓글 등록하기 메서드
 	public void commentWrite(CommentVO cVo) {
-		String sql = "INSERT INTO blogCommentTbl VALUES(blogCommentTbl_seq.nextval, ?, ?, ?, TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS'))";
+		String sql = "INSERT INTO tbl_comment VALUES(tbl_comment_seq.nextval, ?, ?, ?, TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS'))";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -83,7 +83,7 @@ public class CommentDAO {
 			PreparedStatement psmt = null;
 					
 			try {
-				String sql = "UPDATE blogCommentTbl SET commentContent = ? WHERE commentNum = ?";
+				String sql = "UPDATE tbl_comment SET commentContent = ? WHERE commentNum = ?";
 						
 				conn = DBManager.getConnection();
 				psmt = conn.prepareStatement(sql);
@@ -105,7 +105,7 @@ public class CommentDAO {
 		PreparedStatement psmt = null;
 				
 		try {
-			String sql = "DELETE FROM blogCommentTbl WHERE commentNum = ?";
+			String sql = "DELETE FROM tbl_comment WHERE commentNum = ?";
 					
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);

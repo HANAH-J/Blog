@@ -16,7 +16,7 @@ public class MemberDAO {
 	
 	// 로그인 메서드
 	public int selectLogin(String id, String password) {
-		String sql = "SELECT * FROM blogMemberTbl WHERE id = ? AND password = ?";
+		String sql = "SELECT * FROM tbl_member WHERE id = ? AND password = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -50,7 +50,7 @@ public class MemberDAO {
 	public MemberVO selectMember(String id) {
 		MemberVO mVo = null;
 		
-		String sql = "SELECT * FROM blogMemberTbl WHERE id = ?";
+		String sql = "SELECT * FROM tbl_member WHERE id = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -68,9 +68,7 @@ public class MemberDAO {
 				mVo.setId(rs.getString("id"));
 				mVo.setPassword(rs.getString("password"));
 				mVo.setName(rs.getString("name"));
-				mVo.setBirthday(rs.getInt("birthday"));
 				mVo.setEmail(rs.getString("email"));
-				mVo.setPhone(rs.getInt("phone"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -88,7 +86,7 @@ public class MemberDAO {
 	public int selectIdCheck(String id) {
 		int result = -1;
 		
-		String sql = "SELECT id FROM blogMemberTbl WHERE id = ?";
+		String sql = "SELECT id FROM tbl_member WHERE id = ?";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -123,7 +121,7 @@ public class MemberDAO {
 	
 	// 회원가입 메서드
 	public void insertMember(MemberVO mVo) {
-		String sql = "INSERT INTO blogMemberTbl VALUES(?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO tbl_member VALUES(?, ?, ?, ?)";
 			
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -135,9 +133,7 @@ public class MemberDAO {
 			psmt.setString(1, mVo.getId());
 			psmt.setString(2, mVo.getPassword());
 			psmt.setString(3, mVo.getName());
-			psmt.setInt(4, mVo.getBirthday());
-			psmt.setString(5, mVo.getEmail());
-			psmt.setInt(6, mVo.getPhone());
+			psmt.setString(4, mVo.getEmail());
 				
 			psmt.executeUpdate();
 		}catch (Exception e) {
