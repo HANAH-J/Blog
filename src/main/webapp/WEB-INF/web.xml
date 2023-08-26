@@ -29,14 +29,4 @@
     <servlet-name>BoardServlet</servlet-name>
     <url-pattern>/bs</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CKEditorFileUplodadServlet</display-name>
-    <servlet-name>CKEditorFileUplodadServlet</servlet-name>
-    <servlet-class>com.blog.controller.CKEditorFileUplodadServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CKEditorFileUplodadServlet</servlet-name>
-    <url-pattern>/ckEditorFileUpload</url-pattern>
-  </servlet-mapping>
 </web-app>
