@@ -103,4 +103,5 @@ form table tr:nth-of-type(6) td button {
 	margin-top: 15px;
 	font-size: 1em;
     font-weight: bold;
+    cursor: pointer;
 }
