@@ -76,6 +76,13 @@
 			  ],
 			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+			callbacks: {
+				onImageUpload: function(files, editor, welEditable) {
+					for (var i = 0; i < files.length; i++) {
+						sendFile(files[i], this);
+					}
+		        }
+		    },
 			disableResizeEditor: true
         });
         $('#summernote').summernote('fontName', '맑은 고딕');
@@ -83,6 +90,24 @@
         $('#summernote').summernote('fontSizeUnit', 'pt');
         $('.note-statusbar').hide();
     });
+	
+	function sendFile(files, editor) {
+		var data = new FormData();
+		data.append("uploadFile", files);
+		
+		$.ajax({
+			data: data,
+			type: "POST",
+			url: "bs?command=file_upload",
+			cache : false,
+			contentType : false,
+			processData : false,
+			success : function(data) {
+				console.log(data);
+				$(editor).summernote('editor.insertImage', data.url);
+			}
+		});
+	}
 </script>
 </body>
 </html>

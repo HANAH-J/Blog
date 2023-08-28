@@ -12,6 +12,7 @@ import com.blog.action.CommentDeleteAction;
 import com.blog.action.CommentListAction;
 import com.blog.action.CommentUpdateAction;
 import com.blog.action.CommentWriteAction;
+import com.blog.action.FileUploadAction;
 import com.blog.action.MemberJoinAction;
 import com.blog.action.MemberJoinFormAction;
 import com.blog.action.MemberJoinIdCheckAction;
@@ -63,6 +64,8 @@ public class ActionFactory {
 			action = new MemberLoginAction();				// 회원 로그인 완료(Session 저장)
 		}else if(command.equals("member_logout")) {
 			action = new MemberLogoutAction();				// 회원 로그아웃(Session 비우기)
+		}else if(command.equals("file_upload")) {
+			action = new FileUploadAction();				// 파일 업로드
 		}
 		
 		return action;
