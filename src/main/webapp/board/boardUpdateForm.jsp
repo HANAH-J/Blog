@@ -72,11 +72,23 @@
 			    ['table', ['table']],
 			    ['para', ['ul', 'ol', 'paragraph']],
 			    ['height', ['height']],
-			    ['insert',['picture','link','video']],
+			    ['insert',['picture','link']],
 			    ['view', ['fullscreen', 'help']]
 			  ],
 			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+			callbacks: {
+				onImageUpload: function(files) {
+					const [imageFile] = files;
+		            const fileReader = new FileReader();
+		            fileReader.onload = () => {
+		                 let imgData = $("<img>").attr('src', fileReader.result);
+		                 imgData.attr('width', '100%');
+		                $('#summernote').summernote("insertNode", imgData[0]);
+		            };
+		           fileReader.readAsDataURL(imageFile);
+		        }
+		    },
 			disableResizeEditor: true
         });
         $('#summernote').summernote('fontName', '맑은 고딕');

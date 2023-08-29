@@ -7,7 +7,7 @@ CREATE TABLE tbl_board(
     memberId VARCHAR2(20) NOT NULL,
     boardNum NUMBER PRIMARY KEY,
     boardTitle VARCHAR2(200) NOT NULL,
-    boardContent VARCHAR2(2000) NOT NULL,
+    boardContent CLOB NOT NULL,
     readCount NUMBER DEFAULT 0,
     boardDate VARCHAR2(20) NOT NULL
 );
