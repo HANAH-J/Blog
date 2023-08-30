@@ -3,14 +3,14 @@
 ----------------------------------------------------------------------------------------------------
 
 1. 준비 작업
-  1) 라이브러리 복사										----- 완
+  1) 라이브러리 복사											----- 완
      - jstl.jar : HTML 코드 내 스크립트릿 사용
      - ojdbj8.jar : 오라클 데이터베이스 연결
      - gson.jar : Json 파싱 및 생성
      
   2) 데이터베이스 구축										----- 완
-     - 테이블(blogBoardTbl / blogMemberTbl / blogCommentTbl) 생성
-     - 시퀀스(blogBoardTbl_seq / blogCommentTbl_seq) 생성
+     - 테이블(tbl_board / tbl_comment / tbl_member) 생성
+     - 시퀀스(tbl_board_seq / tbl_comment_seq) 생성
      
   3) DBCP(커넥션 풀) 세팅									----- 완
      - server.xml : <Context>[작성]</Context>
@@ -42,14 +42,14 @@
 ----------------------------------------------------------------------------------------------------
 
 3-1. 기능 제작 : 게시물
-  1) 게시물 목록보기										----- 완
+  1) 게시물 목록보기											----- 완
      - index.html 링크
      - 기능 수행 명령어(command = 'board_list')
      - 기능 수행 클래스 (BoardListAction.java)
      - DAO 게시물 목록보기 메서드 (selectBoardList())
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-  2) 게시물 상세보기										----- 완
+  2) 게시물 상세보기											----- 완
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp) -> '더보기' 클릭
      - 기능 수행 명령어 (command = 'board_detail')
      - 기능 수행 클래스 (BoardDetailAction.java)
@@ -57,7 +57,7 @@
      - DAO 게시물 상세보기 메서드(selectBoardDetail(num))
      - 게시물 상세보기 뷰 페이지 (board/boardDetail.jsp)
      
-  3) 게시글 작성하기(글쓰기) 기능							----- 완
+  3) 게시글 작성하기(글쓰기) 기능								----- 완
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp) -> '글쓰기' 클릭
      - 기능 수행 명령어 (command = 'board_write_form')
      - 기능 수행 클래스 (BoardWriteFormAction.java)
@@ -69,24 +69,22 @@
      - DAO 게시물 목록 조회 메서드 (insertBoard(bVo))
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-     - CKEditor4 연동 (https://ckeditor.com/cke4/builder)
-     - 설정 : Full Preset / Default Plugins / Moono-Lisa Skin / English, Korean
+     - summernote 연동
      - CKEditor4.10.1.zip 파일 압축 해제 및 webapp 하위 영역으로 복사
      - 게시글 작성하기 뷰 페이지 (board/boardWriteForm.jsp) <head> 태그 내 코드 추가
-       <script type="text/javascript" src="script/jquery-3.7.0.js"></script>
-	   <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
-	 - <body> 태그 내 <textarea name="content"> 태그 및 코드 추가
-	   $(function () {
-			CKEDITOR.replace('content', {
-				filebrowserUploadUrl : '${pageContext.request.contextPath}/adm/fileupload.do'
-			});
-		});
+       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+	 - <body> 태그 내 <textarea id="summernote" name="boardContent"></textarea> 태그 및 코드 추가
 		
-	 - CKEditor4 이미지 업로드 연동
+	 - summernote 이미지 업로드 연동
 	 - Servers/tomcat/server.xml 파일 내 코드 추가
-	   <Context docBase="C:\Upload\ckeditor" path="/upload/" reloadable="true"/>
+	   <Context docBase="C:\Repository" path="/MY-DUCK" reloadable="true"/>
      
-  4) 게시글 수정하기 기능									----- 완
+  4) 게시글 수정하기 기능										----- 완
      - 게시물 상세보기 뷰 페이지 (board/boardDetail.jsp) -> '수정' 클릭
      - 기능 수행 명령어 (command = 'board_update_form')
      - 기능 수행 클래스 (BoardUpdateFormAction.java)
@@ -99,14 +97,14 @@
      - DAO 게시글 삭제 메서드(updateBoard(bVo))
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
     
-  5) 게시글 삭제하기 기능									----- 완
+  5) 게시글 삭제하기 기능										----- 완
      - 게시물 상세보기 뷰 페이지 (board/boardDetail.jsp) -> '삭제' 클릭
      - 기능 수행 명령어 (command = 'board_delete')
      - 기능 수행 클래스 (BoardDeleteAction.java)
      - DAO 게시글 삭제 메서드(deleteBoard(num))
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-  6) 페이징											----- 완
+  6) 페이징												----- 완
      - 페이지(한 화면에 보여질 게시물 목록) : 페이지 당 4개의 게시물
        └ (페이지번호 -1) *4 +1 ~ (페이지번호) *4
      
@@ -127,19 +125,19 @@
      - DAO 댓글 목록보기 메서드 (selectCommentList())
      - 댓글 목록보기 뷰 페이지 (board/boardDetail.jsp)
      
-  2) 댓글 작성하기 기능[ajax]								----- 완
+  2) 댓글 작성하기 기능[ajax]									----- 완
      - 기능 수행 명령어(command = 'comment_write')
      - 기능 수행 클래스 (CommentWriteAction.java)
      - DAO 댓글 작성하기 메서드 (commentWrite(cVo))
      - 댓글 작성하기 뷰 페이지 (board/boardDetail.jsp)
      
-  3) 댓글 수정하기 기능[ajax]								----- 완
+  3) 댓글 수정하기 기능[ajax]									----- 완
      - 기능 수행 명령어(command = 'comment_update')
      - 기능 수행 클래스 (CommentUpdateAction.java)
      - DAO 댓글 수정하기 메서드 (commentUpdate(commentNum, commentContent))
      - 댓글 작성하기 뷰 페이지 (board/boardDetail.jsp)
   
-  4) 댓글 삭제하기 기능[ajax]								----- 완
+  4) 댓글 삭제하기 기능[ajax]									----- 완
      - 기능 수행 명령어(command = 'comment_delete')
      - 기능 수행 클래스 (CommentDeleteAction.java)
      - DAO 댓글 수정하기 메서드 (commentDelete(commentNum))
@@ -148,7 +146,7 @@
 ----------------------------------------------------------------------------------------------------
 
 3-3. 기능 제작 : 회원
-  1) 회원가입											----- 완
+  1) 회원가입												----- 완
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp) -> '회원가입' 클릭
      - 기능 수행 명령어 (command = 'member_join_form')
      - 기능 수행 클래스 (MemberJoinFormAction.java)
@@ -171,20 +169,20 @@
      - DAO 회원가입 메서드(updateMember(mVo))
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-  3) 로그인											----- 완
+  3) 로그인												----- 완
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp) -> '로그인' 클릭
      - 기능 수행 명령어 (command = 'member_login_form')
      - 기능 수행 클래스 (MemberLoginFormAction.java)
      - DAO 로그인 메서드(selectLogin(id, password))
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-   4) 로그아웃											----- 완
+   4) 로그아웃												----- 완
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp) -> '로그아웃' 클릭
      - 기능 수행 명령어 (command = 'member_logout')
      - 기능 수행 클래스 (MemberLogoutAction.java)
      - 게시물 목록보기 뷰 페이지 (board/boardList.jsp)
      
-   5) 로그인 및 로그아웃 상태 점검							----- 완
+   5) 로그인 및 로그아웃 상태 점검								----- 완
       - 로그인 : 회원가입, 로그인 주소 접근 불가
       - 로그아웃 :	게시물 목록보기, 작성하기, 수정하기, 삭제하기 접근 불가
       			댓글 목록보기, 작성하기, 수정하기, 삭제하기 접근 불가
